@@ -26,6 +26,8 @@ class ComposerStaticInit5055f1b22778297692eb40b2807f224a
         'T' => 
         array (
             'Twig\\' => 5,
+            'Tuupola\\Middleware\\' => 19,
+            'Tuupola\\Http\\Factory\\' => 21,
         ),
         'S' => 
         array (
@@ -85,6 +87,15 @@ class ComposerStaticInit5055f1b22778297692eb40b2807f224a
         'Twig\\' => 
         array (
             0 => __DIR__ . '/..' . '/twig/twig/src',
+        ),
+        'Tuupola\\Middleware\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/tuupola/callable-handler/src',
+            1 => __DIR__ . '/..' . '/tuupola/slim-basic-auth/src',
+        ),
+        'Tuupola\\Http\\Factory\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/tuupola/http-factory/src',
         ),
         'Symfony\\Polyfill\\Php80\\' => 
         array (
