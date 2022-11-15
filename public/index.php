@@ -22,6 +22,19 @@ $connection = require_once dirname(__DIR__) . '/config/db.php';
 $em = EntityManager::create($connection, $config);
 
 $app = AppFactory::create();
+$app->addBodyParsingMiddleware();
+
+$app->options('/{routes:.+}', function ($request, $response, $args) {
+    return $response;
+});
+
+$app->add(function ($request, $handler) {
+    $response = $handler->handle($request);
+    return $response
+            ->withHeader('Access-Control-Allow-Origin', '*')
+            ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
+            ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+});
 
 $apiController = new Api\Controller(
         new Post\Service($em)
@@ -35,7 +48,7 @@ $webController = new Web\Controller(
 $app->get('/', $webController->main(...));
 
 $app->group('/api', function (RouteCollectorProxy $group) use ($app, $apiController) {
-    $group->get('/blog/add', $apiController->addPost(...));
+    $group->post('/blog/add', $apiController->addPost(...));
 });
 
 $app->run();

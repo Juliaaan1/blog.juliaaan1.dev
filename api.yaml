@@ -1,0 +1,65 @@
+openapi: 3.0.3
+info:
+  title: Blog API
+  version: 1.0.0
+  contact:
+    url: https://juliaaan1.dev
+servers:
+  - url: https://blog.juliaaan1.dev
+    description: Prod
+paths:
+  /api/blog/add:
+    post:
+      summary: Add a new post
+      security:
+        - basicAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Post'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+
+security:
+  - basicAuth: []
+
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+
+  schemas:
+    Post:
+      title: Blog post
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Post id
+        title:
+          type: string
+          description: Post title
+        text:
+          type: string
+          description: Post text
+      required:
+        - title
+        - text
+
+  responses:
+    'UnauthorizedError':
+      description: Authentication required
+      headers:
+        WWW-Authenticate:
+          schema:
+            type: string
