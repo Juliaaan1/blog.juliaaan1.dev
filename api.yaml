@@ -59,7 +59,3 @@ components:
   responses:
     'UnauthorizedError':
       description: Authentication required
-      headers:
-        WWW-Authenticate:
-          schema:
-            type: string

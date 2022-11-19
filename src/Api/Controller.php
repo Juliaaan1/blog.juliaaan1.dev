@@ -20,8 +20,12 @@ class Controller {
     }
 
     function addPost(Request $request, Response $response, $args): Response {
-        $response->getBody()->write(print_r($request->getParsedBody(), true));
+        $body = $request->getParsedBody();
 
-        return $response;
+        $post = new Post\Post(null, $body['title'], $body['text']);
+        $postId = $this->service->add($post);
+
+        $response->getBody()->write(json_encode(array('id' => $postId)));
+        return $response->withHeader('Content-Type', 'application/json');
     }
 }

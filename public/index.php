@@ -7,8 +7,10 @@
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\ORMSetup;
 use Juliaaan1\Blog\Api;
+use Juliaaan1\Blog\Auth;
 use Juliaaan1\Blog\Web;
 use Juliaaan1\Blog\Blog\Post;
+use Juliaaan1\Blog\User;
 use Slim\Factory\AppFactory;
 use Slim\Routing\RouteCollectorProxy;
 use Twig\Environment;
@@ -49,6 +51,15 @@ $app->get('/', $webController->main(...));
 
 $app->group('/api', function (RouteCollectorProxy $group) use ($app, $apiController) {
     $group->post('/blog/add', $apiController->addPost(...));
-});
+})->addMiddleware(
+        new Tuupola\Middleware\HttpBasicAuthentication(array(
+            'realm' => 'Protected',
+            'authenticator' => new Auth\Database(
+                    new User\Repository(
+                            $em->getRepository(User\User::class)
+                    )
+            )
+        ))
+);
 
 $app->run();

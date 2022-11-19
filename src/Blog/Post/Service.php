@@ -17,8 +17,10 @@ class Service {
         $this->em = $em;
     }
 
-    function add(): void {
-        $this->em->persist(new Post(null, 'Title', 'Long long text'));
+    function add(Post $post): int {
+        $this->em->persist($post);
         $this->em->flush();
+
+        return $post->id;
     }
 }
