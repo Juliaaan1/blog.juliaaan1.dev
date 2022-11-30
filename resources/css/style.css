@@ -11,8 +11,44 @@ body {
     color: white;
 }
 
+a {
+    color: white;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
 .container:last-child {
     margin-bottom: 50px;
+}
+
+.menu {
+    padding: 10px 30px;
+    border-bottom: 1px solid white;
+}
+
+.menu > .item {
+    font-size: 18px;
+    margin-right: 20px;
+}
+
+.menu > .item:last-child {
+    margin-right: 0;
+}
+
+.menu > .item.active > p {
+    color: #8d8b8b;
+}
+
+.menu > .item > a {
+    text-decoration: none;
+}
+
+.menu > .item > a:hover {
+    color: white;
+    text-decoration: underline;
 }
 
 .post {

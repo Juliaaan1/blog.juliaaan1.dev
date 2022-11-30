@@ -3,6 +3,14 @@
 {% block title %} Juliaaan1 | Блог {% endblock %}
 
 {% block body %}
+    <div class="row menu">
+        <div class="col-auto item">
+            <a href="https://juliaaan1.dev/" target="_blank">Обо мне</a>
+        </div>
+        <div class="col-auto item active">
+            <p>Блог</p>
+        </div>
+    </div>
     {% for post in posts %}
         <div class="row post">
             <div class="col-auto author">[juliaaan1@home]</div>
