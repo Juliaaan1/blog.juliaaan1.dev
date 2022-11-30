@@ -17,7 +17,7 @@ class Repository {
         $this->repository = $repository;
     }
 
-    function findAll(): array {
-        return $this->repository->findAll();
+    function findBy(array $criteria = array(), ?array $orderBy = null, ?int $limit = null, ?int $offset = null): array {
+        return $this->repository->findBy($criteria, $orderBy, $limit, $offset);
     }
 }
