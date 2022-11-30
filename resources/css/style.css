@@ -10,3 +10,31 @@ body {
     font-size: 14px;
     color: white;
 }
+
+.container:last-child {
+    margin-bottom: 50px;
+}
+
+.post {
+    margin-top: 30px;
+}
+
+.post > .author {
+    color: green;
+}
+
+.post > .tag {
+    color: #c5c50a;
+}
+
+.post > .title {
+    font-weight: bold;
+}
+
+.post > .text {
+    margin-top: 5px;
+}
+
+.bottom-panel {
+    background-color: black;
+}

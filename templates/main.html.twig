@@ -3,14 +3,12 @@
 {% block title %} Blog {% endblock %}
 
 {% block body %}
-<div class="container">
     {% for post in posts %}
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">[{{ post.id }}] {{ post.title }}</h5>
-                <p class="card-text">{{ post.text }}</p>
-            </div>
+        <div class="row post">
+            <div class="col-auto author">[juliaaan1@home]</div>
+            <div class="col-auto tag">/</div>
+            <div class="col-auto title">{{ post.title }}</div>
+            <div class="text">{{ post.text }}</div>
         </div>
     {% endfor %}
-</div>
 {% endblock %}
