@@ -15,7 +15,7 @@ use Doctrine\ORM;
 class Post {
     #[ORM\Mapping\Id]
     #[ORM\Mapping\Column(type: 'integer')]
-    #[ORM\Mapping\GeneratedValue]
+    #[ORM\Mapping\GeneratedValue(strategy: 'IDENTITY')]
     var ?int $id;
 
     #[ORM\Mapping\Column(type: 'string', length: 255)]
