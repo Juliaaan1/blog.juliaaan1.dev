@@ -8,6 +8,7 @@
 namespace Juliaaan1\Blog\Blog\Post;
 
 
+use DateTime;
 use Doctrine\ORM;
 
 #[ORM\Mapping\Entity]
@@ -24,9 +25,13 @@ class Post {
     #[ORM\Mapping\Column(type: 'text')]
     var string $text;
 
-    function __construct(?int $id, string $title, string $text) {
+    #[ORM\Mapping\Column(type: 'datetime')]
+    var DateTime $created;
+
+    function __construct(?int $id, string $title, string $text, DateTime $created) {
         $this->id = $id;
         $this->title = $title;
         $this->text = $text;
+        $this->created = $created;
     }
 }

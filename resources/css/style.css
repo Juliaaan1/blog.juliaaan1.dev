@@ -55,6 +55,10 @@ p {
     margin-top: 30px;
 }
 
+.post > .created {
+    color: #8d8b8b;
+}
+
 .post > .author {
     color: green;
 }
@@ -68,7 +72,7 @@ p {
 }
 
 .post > .text {
-    margin-top: 5px;
+    margin-top: 10px;
 }
 
 .bottom-panel {
