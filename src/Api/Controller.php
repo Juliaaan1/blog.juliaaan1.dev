@@ -23,7 +23,7 @@ class Controller {
     function addPost(Request $request, Response $response, $args): Response {
         $body = $request->getParsedBody();
 
-        $post = new Post\Post(null, $body['title'], $body['text'], new DateTime('now'));
+        $post = new Post\Post(null, $body['title'], $body['text'], new DateTime('now'), $body['tag']);
         $postId = $this->service->add($post);
 
         $response->getBody()->write(json_encode(array('id' => $postId)));
