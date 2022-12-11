@@ -1,0 +1,29 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Juliaaan1 | Блог {% endblock %}
+
+{% block body %}
+    <div class="row menu">
+        <div class="col-auto item">
+            <a href="https://juliaaan1.dev/" target="_blank">Обо мне</a>
+        </div>
+        <div class="col-auto item active">
+            <p>Блог</p>
+        </div>
+        <div class="col-auto ms-auto item">
+            <p
+                    class="text-center"
+                    hx-get="/version"
+                    hx-target="body"
+                    hx-swap="beforeend"
+            >История версий</p>
+        </div>
+    </div>
+    <div
+            id="content"
+            hx-get="/posts"
+            hx-trigger="load"
+            hx-target="#content"
+            hx-swap="innerHTML"
+    ></div>
+{% endblock %}

@@ -1,0 +1,21 @@
+<div id="modal" _="on closeModal add .closing then wait for animationend then remove me">
+    <div class="modal-underlay" _="on click trigger closeModal"></div>
+    <div class="modal-content">
+        <h3>История версий</h3>
+        <div>
+            {% for version in versions %}
+                <div class="version">
+                    <span class="date">[{{ version.created | date('d.m.Y H:i') }}]</span>
+                    <span class="title">{{ version.version }}</span>
+                    <ul class="changes">
+                        {% for change in version.changes %}
+                            <li class="text">{{ change.change }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endfor %}
+        </div>
+        <br>
+        <button _="on click trigger closeModal">Закрыть окно</button>
+    </div>
+</div>

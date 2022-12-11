@@ -11,6 +11,7 @@ use Juliaaan1\Blog\Auth;
 use Juliaaan1\Blog\Web;
 use Juliaaan1\Blog\Blog\Post;
 use Juliaaan1\Blog\User;
+use Juliaaan1\Blog\Version;
 use Slim\Factory\AppFactory;
 use Slim\Routing\RouteCollectorProxy;
 use Twig\Environment;
@@ -44,10 +45,13 @@ $apiController = new Api\Controller(
 
 $webController = new Web\Controller(
         new Environment(new FilesystemLoader(dirname(__DIR__) . '/templates')),
-        new Post\Repository($em->getRepository(Post\Post::class))
+        new Post\Repository($em->getRepository(Post\Post::class)),
+        new Version\Repository($em->getRepository(Version\Version::class))
 );
 
 $app->get('/', $webController->blog(...));
+$app->get('/posts', $webController->posts(...));
+$app->get('/version', $webController->version(...));
 
 $app->group('/api', function (RouteCollectorProxy $group) use ($app, $apiController) {
     $group->post('/blog/add', $apiController->addPost(...));

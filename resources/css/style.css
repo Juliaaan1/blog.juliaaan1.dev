@@ -78,3 +78,11 @@ p {
 .bottom-panel {
     background-color: black;
 }
+
+.version > .date {
+    color: #8d8b8b;
+}
+
+.version > .title {
+    font-weight: bold;
+}

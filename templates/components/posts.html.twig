@@ -1,0 +1,9 @@
+{% for post in posts %}
+    <div class="row post">
+        <div class="col-auto created">[{{ post.created | date("d.m.Y H:i") }}]</div>
+        <div class="col-auto author">juliaaan1@home</div>
+        <div class="col-auto tag">{{ post.tag }}</div>
+        <div class="col-auto title">{{ post.title }}</div>
+        <div class="text">{{ post.text | nl2br }}</div>
+    </div>
+{% endfor %}
