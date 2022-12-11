@@ -47,7 +47,7 @@ $webController = new Web\Controller(
         new Post\Repository($em->getRepository(Post\Post::class))
 );
 
-$app->get('/', $webController->main(...));
+$app->get('/', $webController->blog(...));
 
 $app->group('/api', function (RouteCollectorProxy $group) use ($app, $apiController) {
     $group->post('/blog/add', $apiController->addPost(...));

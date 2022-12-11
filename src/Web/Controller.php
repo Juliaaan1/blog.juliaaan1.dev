@@ -22,7 +22,7 @@ class Controller {
         $this->postRepository = $postRepository;
     }
 
-    function main(Request $request, Response $response, $args): Response {
+    function blog(Request $request, Response $response, $args): Response {
         $posts = $this->postRepository->findBy(array(), array('id' => 'desc'));
         $response->getBody()->write($this->twig->render('blog.html.twig', array('posts' => $posts)));
         return $response;
