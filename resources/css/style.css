@@ -38,17 +38,21 @@ p {
     margin-right: 0;
 }
 
+.menu > .item:not(.active) > * {
+    cursor: pointer;
+}
+
+.menu > .item:not(.active) > *:hover {
+    color: white;
+    text-decoration: underline;
+}
+
 .menu > .item.active > p {
     color: #8d8b8b;
 }
 
 .menu > .item > a {
     text-decoration: none;
-}
-
-.menu > .item > a:hover {
-    color: white;
-    text-decoration: underline;
 }
 
 .post {
