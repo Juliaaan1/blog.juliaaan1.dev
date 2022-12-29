@@ -1,3 +1,23 @@
+<div class="row tag-cloud">
+    {% if (activeTag) %}
+        <a class="col-auto tag" href="/">
+            <span>&#10005;</span>
+        </a>
+    {% endif %}
+
+    {% for tag in tags %}
+        {% if (tag.tag == activeTag) %}
+            <div class="col-auto tag active">
+                <span>{{ tag.tag }}</span>
+            </div>
+        {% else %}
+            <a class="col-auto tag" href="/?tag={{ tag.tag }}">
+                <span>{{ tag.tag }}</span>
+            </a>
+        {% endif %}
+    {% endfor %}
+</div>
+
 {% for post in posts %}
     <div class="row post">
         <div class="col-auto created">[{{ post.created | date("d.m.Y H:i") }}]</div>

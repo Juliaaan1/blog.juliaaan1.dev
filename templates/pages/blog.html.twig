@@ -21,7 +21,7 @@
     </div>
     <div
             id="content"
-            hx-get="/posts"
+            hx-get="/posts?tag={{ activeTag }}"
             hx-trigger="load"
             hx-target="#content"
             hx-swap="innerHTML"

@@ -90,3 +90,23 @@ p {
 .version > .title {
     font-weight: bold;
 }
+
+.tag-cloud {
+    margin-top: 30px;
+}
+
+.tag-cloud > .tag {
+    background-color: #8d8b8b;
+    margin-left: 10px;
+    margin-right: 10px;
+
+    text-decoration: none;
+}
+
+.tag-cloud > .tag > span {
+    color: black;
+}
+
+.tag-cloud > .tag.active > span {
+    color: white;
+}

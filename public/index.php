@@ -10,6 +10,7 @@ use Juliaaan1\Blog\Api;
 use Juliaaan1\Blog\Auth;
 use Juliaaan1\Blog\Web;
 use Juliaaan1\Blog\Blog\Post;
+use Juliaaan1\Blog\Blog\TagCloud;
 use Juliaaan1\Blog\User;
 use Juliaaan1\Blog\Version;
 use Slim\Factory\AppFactory;
@@ -46,6 +47,7 @@ $apiController = new Api\Controller(
 $webController = new Web\Controller(
         new Environment(new FilesystemLoader(dirname(__DIR__) . '/templates')),
         new Post\Repository($em->getRepository(Post\Post::class)),
+        new TagCloud\Repository($em->createQueryBuilder()),
         new Version\Repository($em->getRepository(Version\Version::class))
 );
 
