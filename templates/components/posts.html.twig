@@ -1,8 +1,13 @@
 <div class="row tag-cloud">
     {% if (activeTag) %}
-        <a class="col-auto tag" href="/">
+        <p
+                class="col-auto tag"
+                hx-get="/posts?tag="
+                hx-target="#content"
+                hx-swap="innerHTML"
+        >
             <span>&#10005;</span>
-        </a>
+        </p>
     {% endif %}
 
     {% for tag in tags %}
@@ -11,9 +16,14 @@
                 <span>{{ tag.tag }}</span>
             </div>
         {% else %}
-            <a class="col-auto tag" href="/?tag={{ tag.tag }}">
+            <p
+                    class="col-auto tag"
+                    hx-get="/posts?tag={{ tag.tag }}"
+                    hx-target="#content"
+                    hx-swap="innerHTML"
+            >
                 <span>{{ tag.tag }}</span>
-            </a>
+            </p>
         {% endif %}
     {% endfor %}
 </div>

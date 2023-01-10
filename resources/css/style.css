@@ -100,7 +100,7 @@ p {
     margin-left: 10px;
     margin-right: 10px;
 
-    text-decoration: none;
+    cursor: pointer;
 }
 
 .tag-cloud > .tag > span {
